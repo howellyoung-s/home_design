@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>设计师需求说明 · 目标户型</title>
+  <style>
+    :root {
+      --bg: #f3eee6;
+      --paper: #fbf8f3;
+      --ink: #2b241c;
+      --muted: #6e655a;
+      --line: #e6dccb;
+      --accent: #8d5e3c;
+      --accent-soft: #f1e6d6;
+      --warn: #9a5b32;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #fff8ee 0%, transparent 55%),
+        var(--bg);
+      font: 16px/1.7 "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    }
+
+    a { color: var(--accent); }
+    img, video { max-width: 100%; display: block; }
+    button { font: inherit; }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+
+    header.hero {
+      padding: 8px 0 28px;
+    }
+
+    .kicker {
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 42em;
+      margin: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 0;
+    }
+
+    .chip {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      padding: 12px 0;
+      background: rgba(243, 238, 230, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    nav.toc a {
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    nav.toc a:hover { border-color: var(--accent); color: var(--accent); }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 28px 32px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .note {
+      background: var(--accent-soft);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--warn);
+      font-size: 14px;
+      margin: 0 0 18px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15em;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 24px;
+    }
+
+    figure {
+      margin: 0 0 8px;
+    }
+
+    figure img, figure video, figure svg.orient {
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      background: #efe8dc;
+      border-radius: 12px;
+      cursor: zoom-in;
+      border: 1px solid var(--line);
+    }
+
+    figure svg.orient {
+      cursor: default;
+      max-height: none;
+      height: auto;
+    }
+
+    figure img.site-plan {
+      width: 50%;
+      max-height: 36vh;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      align-items: start;
+    }
+
+    figcaption strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .dl {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: start;
+      text-decoration: none;
+      color: var(--accent);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 12px;
+      background: #fffdf8;
+      white-space: nowrap;
+    }
+
+    .dl:hover { border-color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #efe2d2;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      vertical-align: 1px;
+    }
+
+    .asset {
+      margin: 22px 0 0;
+    }
+
+    .refs a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      background: #fffdf8;
+    }
+
+    .refs a:hover { border-color: var(--accent); }
+    .refs small { color: var(--muted); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 18, 12, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: min(96vw, 1400px);
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox .dl {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      grid-column: auto;
+      grid-row: auto;
+      background: #fffdf8;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 24px, 1080px); padding-top: 24px; }
+      section { padding: 20px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      nav.toc { overflow-x: auto; }
+    }
+
+    @media print {
+      nav.toc, .lightbox { display: none !important; }
+      section { break-inside: avoid; }
+      figure img { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">DESIGN BRIEF</div>
+      <h1>设计师需求说明</h1>
+      <p class="lede">目标户型　精装改造。请按目标户型做方案；部分图纸和实景是镜像户型，只借用尺寸和材料，左右不要跟图走。</p>
+      <div class="chips">
+        <span class="chip">建面 139 / 套内 120</span>
+        <span class="chip">3 / 17 层</span>
+        <span class="chip">东南朝向</span>
+        <span class="chip">精装改造</span>
+      </div>
+    </header>
+
+    <nav class="toc">
+      <a href="#hardware">1. 硬件介绍</a>
+      <a href="#needs">2. 个人需求</a>
+      <a href="#refs">3. 收藏案例</a>
+    </nav>
+
+    <section id="hardware">
+      <h2>1. 硬件介绍</h2>
+      <p class="note">本套房是目标户型。尺寸图、吊顶图、实景视频为镜像户型：数字和材料可直接看，方案左右按目标户型。</p>
+      <ul>
+        <li>建面 139，套内 120；3 楼 / 共 17 层；东南朝向。目标楼栋在最北一排，北边十几米有条小河。夏天下午有一点西晒，从北边照进来。</li>
+        <li>地暖、中央空调、新风：<strong>不想动</strong>。设备间空气能：<strong>可以不用</strong>。</li>
+        <li>南阳台：应该可封。北阳台：不确定；有外机 + 空气能，会占一部分空间。</li>
+        <li>地砖可换，墙纸要撕。</li>
+      </ul>
+
+      <h3>图纸</h3>
+
+      <div class="asset">
+        <figure>
+          <img class="site-plan" src="sources/楼栋朝向.png" alt="楼栋朝向" />
+          <figcaption>
+            <strong>楼栋朝向</strong>
+            小区落位图。目标楼栋在最北一排（图中），北侧十几米有小河；户型朝南偏东 40°。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="asset">
+        <figure>
+          <img src="sources/小鸡户型图new.png" alt="目标户型图" />
+          <figcaption>
+            <strong>目标户型</strong>
+            格局：南向主卧（飘窗 + 主卫）、南次卧、客厅；北侧厨房和设备平台。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="asset">
+        <figure>
+          <img src="sources/平面承重图.jpg" alt="承重图" />
+          <figcaption>
+            <strong>承重</strong>
+            目标户型结构图。涂黑墙 / 柱不能动。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="asset">
+        <figure>
+          <img src="sources/户型图尺寸1.jpg" alt="尺寸图（镜像）" />
+          <figcaption>
+            <strong>尺寸（镜像户型）</strong>
+            只看开间进深，左右相反。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="asset">
+        <figure>
+          <img src="sources/户型图吊顶.jpg" alt="吊顶风口图（镜像）" />
+          <figcaption>
+            <strong>吊顶 / 风口（镜像户型）</strong>
+            只看风口和跌级。柜子和灯位不要挡送排风。
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>同楼层镜像户型实景</h3>
+
+      <div class="asset">
+        <figure>
+          <video controls preload="metadata" src="sources/实景视频-镜像.mp4"></video>
+          <figcaption>
+            <strong>全屋实景视频（镜像户型）</strong>
+            同楼层、多云白天下午拍。看精装材料、光线、完成面；左右要反过来。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="asset">
+        <figure>
+          <img src="sources/餐厅-北阳台.png" alt="餐厅看北阳台（镜像户型）" />
+          <figcaption>
+            <strong>餐厅看北阳台（镜像户型）</strong>
+            北阳台门、栏杆、设备格栅，以及公区地砖和吊顶。
+          </figcaption>
+        </figure>
+      </div>
+
+      <p style="margin: 22px 0 8px; color: var(--muted); font-size: 14px;">视频截帧（镜像户型），只看材料：</p>
+      <div class="grid-2">
+        <figure>
+          <img src="sources/实景镜像/公区-地砖与阳台.jpg" alt="公区地砖与阳台门（镜像户型）" />
+          <figcaption><strong>公区地砖与阳台门（镜像户型）</strong></figcaption>
+        </figure>
+        <figure>
+          <img src="sources/实景镜像/客厅-饰面板.jpg" alt="客厅饰面板（镜像户型）" />
+          <figcaption><strong>客厅饰面板（镜像户型）</strong></figcaption>
+        </figure>
+        <figure>
+          <img src="sources/实景镜像/卫生间.jpg" alt="卫生间（镜像户型）" />
+          <figcaption><strong>卫生间（镜像户型）</strong></figcaption>
+        </figure>
+        <figure>
+          <img src="sources/实景镜像/主卧-飘窗.jpg" alt="主卧飘窗（镜像户型）" />
+          <figcaption><strong>主卧飘窗 / 卧室木地板（镜像户型）</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="needs">
+      <h2>2. 个人需求</h2>
+      <h3>整体</h3>
+      <ul>
+        <li>现在两口；<strong>两年内要小孩</strong>；父母目前偶尔住个把星期，有小孩后可能会来得比较多。</li>
+        <li>要能加班的<strong>书房</strong>，也想要<strong>衣帽间</strong>，两件事可以放同一间。</li>
+        <li>住着舒适、不沉闷，不要出租屋感。</li>
+        <li>柜子够用即可，可适量多做一点储备，<strong>不要做满显压抑</strong>。</li>
+      </ul>
+      <h3>局部痛点</h3>
+      <ul>
+        <li>电视背景墙开门，动线不好，墙面也变短。</li>
+        <li>灰色亮光砖不好配家具、柜子。</li>
+        <li>餐厅开间略窄：希望不局促，但仍有一定储物和操作空间，也不想弄得太小气。</li>
+      </ul>
+    </section>
+
+    <section id="refs">
+      <h2>3. 收藏案例</h2>
+      <p>三条都喜欢，风格没定死。可以做其中一种，也可以混搭或找交集；不极度追求某种风格。方向是温润、能住、有生活气，不要冷灰精装，也不要网红空壳。</p>
+      <div class="refs">
+        <a href="https://www.xiaohongshu.com/explore/6a561c95000000001603c713?xsec_token=CBdVRUpOHiCvhwJSIL1Q6QSdhja0fV6KUrUj1AJG4mnkA=&xsec_source=app_share" target="_blank" rel="noopener">
+          <strong>偏自然</strong><br />
+          家有治愈一切的力量<br />
+          <small>小红书 · 点击打开</small>
+        </a>
+        <a href="https://www.xiaohongshu.com/explore/6a58926a000000000f00b62a?xsec_token=CBNcGbbHhX5ev4gMPJ1Fi3UEJ4dYz3ooZSZBSJJQPS54o=&xsec_source=app_share" target="_blank" rel="noopener">
+          <strong>偏法式</strong><br />
+          108㎡ 轻法式 Roomtour<br />
+          <small>小红书 · 点击打开</small>
+        </a>
+        <a href="https://www.xiaohongshu.com/explore/69f064bf000000003700f49e?xsec_token=CBIwQ09Qlm4_WBgrrTV_WQ8F-iSuw6UoJbe7Q7AaIpQIk=&xsec_source=app_share" target="_blank" rel="noopener">
+          <strong>偏中古、原木</strong><br />
+          被温柔的木色，治愈了三餐四季<br />
+          <small>小红书 · 点击打开</small>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <div class="lightbox" id="lightbox" title="点击关闭">
+    <a class="dl" id="lightbox-dl" href="#" download>下载</a>
+    <img alt="" />
+  </div>
+
+  <script>
+    function fileNameFrom(url) {
+      try {
+        return decodeURIComponent(new URL(url, location.href).pathname.split("/").pop()) || "download";
+      } catch {
+        return "download";
+      }
+    }
+
+    async function downloadUrl(url, filename) {
+      const name = filename || fileNameFrom(url);
+      try {
+        const res = await fetch(url, { mode: "cors" });
+        if (!res.ok) throw new Error(String(res.status));
+        const blob = await res.blob();
+        const tmp = document.createElement("a");
+        tmp.href = URL.createObjectURL(blob);
+        tmp.download = name;
+        document.body.appendChild(tmp);
+        tmp.click();
+        tmp.remove();
+        setTimeout(() => URL.revokeObjectURL(tmp.href), 1500);
+        return true;
+      } catch {
+        const tmp = document.createElement("a");
+        tmp.href = url;
+        tmp.download = name;
+        tmp.rel = "noopener";
+        tmp.target = "_blank";
+        document.body.appendChild(tmp);
+        tmp.click();
+        tmp.remove();
+        return false;
+      }
+    }
+
+    document.querySelectorAll("figure").forEach((fig) => {
+      const media = fig.querySelector("img, video");
+      if (!media) return;
+      const src = media.getAttribute("src");
+      const cap = fig.querySelector("figcaption") || fig.appendChild(document.createElement("figcaption"));
+      const a = document.createElement("a");
+      a.className = "dl";
+      a.href = src;
+      a.download = fileNameFrom(src);
+      a.textContent = "下载";
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        downloadUrl(a.href, a.download);
+      });
+      cap.appendChild(a);
+    });
+
+    const box = document.getElementById("lightbox");
+    const boxImg = box.querySelector("img");
+    const boxDl = document.getElementById("lightbox-dl");
+    document.querySelectorAll("figure img").forEach((img) => {
+      img.addEventListener("click", () => {
+        boxImg.src = img.src;
+        boxImg.alt = img.alt;
+        boxDl.href = img.src;
+        boxDl.download = fileNameFrom(img.src);
+        box.classList.add("show");
+      });
+    });
+    boxDl.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      downloadUrl(boxDl.href, boxDl.download);
+    });
+    box.addEventListener("click", () => box.classList.remove("show"));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") box.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

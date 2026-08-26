@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>设计师需求说明 · 建发云湖之城 云宸 C1</title>
+  <title>设计师需求说明 · 目标户型</title>
   <style>
     :root {
       --bg: #f3eee6;
@@ -149,7 +149,7 @@
       margin: 0 0 8px;
     }
 
-    figure img, figure video {
+    figure img, figure video, figure svg.orient {
       width: 100%;
       max-height: 72vh;
       object-fit: contain;
@@ -159,7 +159,17 @@
       border: 1px solid var(--line);
     }
 
-    figure video { cursor: default; background: #1f1b16; }
+    figure svg.orient {
+      cursor: default;
+      max-height: none;
+      height: auto;
+    }
+
+    figure img.site-plan {
+      width: 50%;
+      max-height: 36vh;
+      margin: 0 auto;
+    }
 
     figcaption {
       margin-top: 8px;
@@ -272,7 +282,7 @@
     <header class="hero">
       <div class="kicker">DESIGN BRIEF</div>
       <h1>设计师需求说明</h1>
-      <p class="lede">建发云湖之城 · 云宸 C1　精装改造。请按 C1 做方案；部分图纸和实景是镜像户型，只借用尺寸和材料，左右不要跟图走。</p>
+      <p class="lede">目标户型　精装改造。请按目标户型做方案；部分图纸和实景是镜像户型，只借用尺寸和材料，左右不要跟图走。</p>
       <div class="chips">
         <span class="chip">建面 139 / 套内 120</span>
         <span class="chip">3 / 17 层</span>
@@ -289,9 +299,9 @@
 
     <section id="hardware">
       <h2>1. 硬件介绍</h2>
-      <p class="note">本套房是 C1。尺寸图、吊顶图、实景视频为镜像户型：数字和材料可直接看，方案左右按 C1。</p>
+      <p class="note">本套房是目标户型。尺寸图、吊顶图、实景视频为镜像户型：数字和材料可直接看，方案左右按目标户型。</p>
       <ul>
-        <li>建面 139，套内 120；3 楼 / 共 17 层；东南朝向。楼栋是最北面这排，北边十几米有条小河。夏天下午有一点西晒，从北边照进来。</li>
+        <li>建面 139，套内 120；3 楼 / 共 17 层；东南朝向。目标楼栋在最北一排，北边十几米有条小河。夏天下午有一点西晒，从北边照进来。</li>
         <li>地暖、中央空调、新风：<strong>不想动</strong>。设备间空气能：<strong>可以不用</strong>。</li>
         <li>南阳台：应该可封。北阳台：不确定；有外机 + 空气能，会占一部分空间。</li>
         <li>地砖可换，墙纸要撕。</li>
@@ -301,20 +311,20 @@
 
       <div class="asset">
         <figure>
-          <img src="sources/楼栋朝向-东南.png" alt="楼栋朝向" />
+          <img class="site-plan" src="sources/楼栋朝向.png" alt="楼栋朝向" />
           <figcaption>
             <strong>楼栋朝向</strong>
-            小区落位，确认东南向和楼间距。
+            小区落位图。目标楼栋在最北一排（图中），北侧十几米有小河；户型朝南偏东 40°。
           </figcaption>
         </figure>
       </div>
 
       <div class="asset">
         <figure>
-          <img src="sources/小鸡户型图new.png" alt="C1 户型图" />
+          <img src="sources/小鸡户型图new.png" alt="目标户型图" />
           <figcaption>
-            <strong>C1 户型</strong>
-            本套房格局：南向主卧（飘窗 + 主卫）、南次卧、客厅；北侧厨房和设备平台。
+            <strong>目标户型</strong>
+            格局：南向主卧（飘窗 + 主卫）、南次卧、客厅；北侧厨房和设备平台。
           </figcaption>
         </figure>
       </div>
@@ -324,7 +334,7 @@
           <img src="sources/平面承重图.jpg" alt="承重图" />
           <figcaption>
             <strong>承重</strong>
-            C1 结构图。涂黑墙 / 柱不能动。
+            目标户型结构图。涂黑墙 / 柱不能动。
           </figcaption>
         </figure>
       </div>
@@ -353,7 +363,7 @@
 
       <div class="asset">
         <figure>
-          <video controls preload="metadata" src="sources/4867c0306cd411046d5ae1bf23ba6b0a_raw.mp4"></video>
+          <video controls preload="metadata" src="sources/实景视频-镜像.mp4"></video>
           <figcaption>
             <strong>全屋实景视频（镜像户型）</strong>
             同楼层、多云白天下午拍。看精装材料、光线、完成面；左右要反过来。
@@ -420,7 +430,7 @@
         </a>
         <a href="https://www.xiaohongshu.com/explore/6a58926a000000000f00b62a?xsec_token=CBNcGbbHhX5ev4gMPJ1Fi3UEJ4dYz3ooZSZBSJJQPS54o=&xsec_source=app_share" target="_blank" rel="noopener">
           <strong>偏法式</strong><br />
-          杭州 108㎡ 轻法式 Roomtour<br />
+          108㎡ 轻法式 Roomtour<br />
           <small>小红书 · 点击打开</small>
         </a>
         <a href="https://www.xiaohongshu.com/explore/69f064bf000000003700f49e?xsec_token=CBIwQ09Qlm4_WBgrrTV_WQ8F-iSuw6UoJbe7Q7AaIpQIk=&xsec_source=app_share" target="_blank" rel="noopener">
